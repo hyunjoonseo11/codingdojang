@@ -173,9 +173,25 @@ print(give())
     
 ```
 -----------------------------------
-* 159번
+* [159번](https://codingdojang.com/scode/584?answer=26199#answer_26199)
+   * 1부터 10까지의 어떤 수로도 나누어 떨어지는 가장 작은 수는 2520입니다.
+   * 그렇다면 1부터 20까지의 어떤 수로도 나누어 떨어지는 가장 작은 수는 얼마입니까?
 ```python
-    
+lastNumber = 20
+i = lastNumber
+while True:
+    t = 0
+    i += 1
+    for n in range(1, lastNumber+1):
+        if i%n == 0:
+            t += 1
+        else:
+            break    
+    if t == lastNumber:
+        break
+        
+print(i)   
+   
 ```
 -----------------------------------
 
