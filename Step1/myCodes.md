@@ -193,4 +193,16 @@ while True:
 print(i)   
 ```
 -----------------------------------
+* [160번](https://codingdojang.com/scode/585)
+   * 3개의 숫자를 입력으로 받고 3개의 숫자 중에 중간값을 가지는 숫자를 출력하세요. ex1) 2, 5, 3 => 3 ex2) 4, 6, 4 => 4
+```python
+a = int(input('첫번째 숫자 입력: '))
+b = int(input('두번째 숫자 입력: '))
+c = int(input('세번째 숫자 입력: '))
+result = []
+for i in a,b,c:
+    result.append(i)
 
+print(sorted(result)[1])    
+```
+-----------------------------------
