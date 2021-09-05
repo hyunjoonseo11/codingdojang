@@ -252,9 +252,9 @@ def get(a,b,c,d):
     l = a*c*d
     t = a*b*d
     w = a*b*c
-    print(i,l,t,w)
+    return i,l,t,w
 
-print(get(2,6,4,7))    
+print(get(2,6,4,7)
 ```
 -----------------------------------
 * [169번](https://codingdojang.com/scode/595?answer=26212#answer_26212)
