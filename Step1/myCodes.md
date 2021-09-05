@@ -254,7 +254,7 @@ def get(a,b,c,d):
     w = a*b*c
     return i,l,t,w
 
-print(get(2,6,4,7)
+print(get(2,6,4,7))
 ```
 -----------------------------------
 * [169번](https://codingdojang.com/scode/595?answer=26212#answer_26212)
