@@ -370,3 +370,41 @@ for i in a:
 print("홀수는{0}개, 짝수는{1}개".format(result,result1))     
 ```
 -----------------------------------
+* [187번](https://codingdojang.com/scode/614?answer=26250#answer_26250)
+   * 3개의 각으로 삼각형의 예각, 직각, 둔각을 구별하는 프로그램을 만들어라.
+[60, 60, 60] = 예각삼각형
+[30, 60, 90] = 직각삼각형
+[20, 40, 120] = 둔각삼각형
+[0, 90, 90] = 삼각형이 아니다
+[60, 70, 80] = 삼각형이 아니다
+[40, 40, 50, 50] = 삼각형이 아니다
+```python
+def triangle(a):
+    if len(a) != 3:
+        return "It is not the triangle(삼각형이 아니다)"
+    if sum(a) != 180:
+        return "It is not the triangle(삼각형이 아니다)"
+    if 90 in a:
+        return "직각삼각형"
+    if max(a) > 90:
+        return "둔각삼각형"
+    else:
+        return "예각삼각형"
+
+if __name__ == '__main__':
+    a = [70,50,90]   
+    print(triangle(a)) 
+```
+-----------------------------------
+* [208번](https://codingdojang.com/scode/639?answer=26249#answer_26249)
+   * 초보자 프로그래머 홍길동은 사용자가 입력한 양의정수(범위는 int)각 자리수를 더해 출력하는 프로그램을 만들고 싶어한다. ex) 5923의 결과는 5+9+2+3인 19이다 ex) 200의 결과는 2+0+0인 2이다 ex) 6719283의 결과는 6+7+1+9+2+8+3인 36이다.
+```python
+a = input()
+result = 0
+j = len(a)
+for i in range(j):
+    result += int(a[i])
+
+print(result)     
+```
+-----------------------------------
