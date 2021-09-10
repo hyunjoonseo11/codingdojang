@@ -442,3 +442,38 @@ def time(a,b,c):
 print(time(5,23,58))
 ```
 -----------------------------------
+* [214번](https://codingdojang.com/scode/646?answer=26269#answer_26269)
+   * 문자와 숫자가섞인 문자열을 입력받을때 구별하여출력해라
+input:
+"c910m6ia 1ho"
+output:
+str : cma ho
+int : 91061
+```python
+   "방법1"
+a = input()
+s = ""
+n = ""
+for i in a:
+    if i <= '9':
+        n += i
+    else:
+        s += i
+
+print("str: {0}".format (s))
+print("int: {0}".format (n))
+
+"방법2"
+a = input()
+s = ""
+n = ""
+for i in a:
+    if i.isdigit():
+        n += i
+    else:
+        s += i
+
+print("str: {0}".format (s))
+print("int: {0}".format (n))
+```
+-----------------------------------
