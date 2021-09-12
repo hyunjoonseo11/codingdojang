@@ -429,10 +429,12 @@ or
 ```python
 import time
 
-t = time.localtime(time.time())
-hh = t.tm_hour
-mm = t.tm_min
-ss = t.tm_sec
+def compute_left_time(time_diff_second):
+    ss = time_diff_second % 60  # 초를 60으로 나눈 나머지 = 초
+    temp = time_diff_second // 60   # 초를 60으로 나는 몫 = 분
+    mm = temp % 60    # 분을 60으로 나눈 나머지 = 분
+    hh = temp // 60    # 분을 60으로 나눈 몫 = 시간
+    return (hh, mm, ss)
 
 def compute_time(h,m,s):
     current_time = 3600*h + 60*m + s
@@ -441,21 +443,21 @@ def compute_time(h,m,s):
     time_diff = get_off_time - current_time
 
     if(time_diff >= 0):
-        ss = time_diff % 60
-        temp = time_diff // 60
-        mm = temp % 60
-        hh = temp // 60
+        hh, mm, ss = compute_left_time(time_diff)
         print(f'{hh}시간 {mm}분 {ss}초 남았습니다')
     else:
         time_diff = -time_diff
-        ss = time_diff % 60
-        temp = time_diff // 60
-        mm = temp % 60
-        hh = temp // 60
+        hh, mm, ss = compute_left_time(time_diff)
         print(f'{hh}시간 {mm}분 {ss}초 지났습니다')
 
-# print(compute_time(hh,mm,ss))
-compute_time(18,40,30)
+if __name__ == '__main__':
+    t = time.localtime(time.time())
+    hh = t.tm_hour
+    mm = t.tm_min
+    ss = t.tm_sec
+
+    # print(compute_time(hh,mm,ss))
+    compute_time(18,40,30)
 ```
 -----------------------------------
 * [214번](https://codingdojang.com/scode/646?answer=26269#answer_26269)
