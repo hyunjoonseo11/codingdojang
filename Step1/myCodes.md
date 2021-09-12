@@ -380,13 +380,11 @@ print("홀수는{0}개, 짝수는{1}개".format(result,result1))
 [40, 40, 50, 50] = 삼각형이 아니다
 ```python
 def triangle(a):
-    if len(a) != 3:
+    if(len(a)!=3 or sum(a)!=180) :
         return "It is not the triangle(삼각형이 아니다)"
-    if sum(a) != 180:
-        return "It is not the triangle(삼각형이 아니다)"
-    if 90 in a:
+    elif 90 in a:
         return "직각삼각형"
-    if max(a) > 90:
+    elif max(a) > 90:
         return "둔각삼각형"
     else:
         return "예각삼각형"
@@ -426,20 +424,38 @@ output: 남은시간 : hh:mm:ss
 or
 남은시간 : s
 심화버젼 : 이쁘게꾸며보자!
+   * 퇴근시간 이후에 계산기를 작동시키면 "퇴근 시간이 지났습니다" 라고 출력하기
+   * 남는시간을 초단위로 계산해서 구해보기
 ```python
-def time(a,b,c):
-    a = 17 - a
-    b = 30 - b
-    b = b - 1
-    c = 60 - c
-    if b < 0:
-        b = 60 + b
-        
-    elif c < 0:
-        c = 60 - c
-    return '{0}시간 {1}분 {2}초 남았습니다'.format(a,b,c)
+import time
 
-print(time(5,23,58))
+t = time.localtime(time.time())
+hh = t.tm_hour
+mm = t.tm_min
+ss = t.tm_sec
+
+def compute_time(h,m,s):
+    current_time = 3600*h + 60*m + s
+    get_off_time = 3600*17 + 60*30
+
+    time_diff = get_off_time - current_time
+
+    if(time_diff >= 0):
+        ss = time_diff % 60
+        temp = time_diff // 60
+        mm = temp % 60
+        hh = temp // 60
+        print(f'{hh}시간 {mm}분 {ss}초 남았습니다')
+    else:
+        time_diff = -time_diff
+        ss = time_diff % 60
+        temp = time_diff // 60
+        mm = temp % 60
+        hh = temp // 60
+        print(f'{hh}시간 {mm}분 {ss}초 지났습니다')
+
+# print(compute_time(hh,mm,ss))
+compute_time(18,40,30)
 ```
 -----------------------------------
 * [214번](https://codingdojang.com/scode/646?answer=26269#answer_26269)
