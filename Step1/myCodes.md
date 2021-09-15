@@ -556,3 +556,26 @@ if __name__ == '__main__':
     find_type(7446.78) 
 ```
 -----------------------------------
+* [247번](https://codingdojang.com/scode/686?answer=26296#answer_26296)
+   * 기수(Cardinal)를 입력하면 영어 서수(Ordinal)로 출력하는 함수를 작성합니다.
+      * 1, 21, 31, 41, ... → 1st, 21st, 31st, 41st, ...
+      * 2, 22, 32, 42, ... → 2nd, 22nd, 32nd, 42nd, ...
+      * 3, 23, 33, 43, ... → 3rd, 23rd, 33rd, 43rd, ...
+      * 11, 12, 13, 111, 112, 113, 211, 212, 213, ...  → 11th, 12th, 13th, 111th, 112th, 113th, 211th, 212th, 213th, ...
+      * 4, 5, 6, 11, 12, 13, 101, 111, 112, ... → 4th, 5th, 6th, 11th, 12th, 13th, 101th, 111th, 112th, ...
+```python
+def number_distinguish(a):
+    i = str(a)
+    if i[-1] == '1' and i[-2] != '1':
+        print(i+'st')
+    elif i[-1] == '2' and i[-2] != '1':
+        print(i+'nd')
+    elif i[-1] == '3' and i[-2] != '1':
+        print(i+'rd')    
+    else:
+        print(i+'th')
+
+number_distinguish(37)
+ 
+```
+-----------------------------------
