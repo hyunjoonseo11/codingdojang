@@ -590,18 +590,18 @@ number_distinguish(37)
 #결과에 소수점이 없다
 record = int(input())
 time = record * 42195 / 100
-ss = int(time% 60)  # 초를 60으로 나눈 나머지 = 초
-temp = int(time // 60)   # 초를 60으로 나는 몫 = 분
-mm = int(temp % 60)    # 분을 60으로 나눈 나머지 = 분
+ss = int(time% 60)
+temp = int(time // 60)
+mm = int(temp % 60)
 hh = int(temp // 60)
 print('{0}시간 {1}분 {2}초'.format(hh,mm,ss))
 #결과에 소수점이 있다
 record = int(input())
 time = record * 42195 / 100
-ss = time% 60  # 초를 60으로 나눈 나머지 = 초
-temp = time // 60  # 초를 60으로 나는 몫 = 분
-mm = temp % 60  # 분을 60으로 나눈 나머지 = 분
+ss = time% 60
+temp = time // 60
+mm = temp % 60
 hh = temp // 60
-print('{0}시간 {1}분 {2}초'.format(hh,mm,ss)) 
+print('{0}시간 {1}분 {2}초'.format(hh,mm,ss))
 ```
 -----------------------------------
