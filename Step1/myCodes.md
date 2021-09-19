@@ -551,12 +551,13 @@ def find_type(a):
     try:
         if a - int(a) == 0:
             print('정수')
-        elif a - int(a) != 0:
+        else:
             print('소수')   
     except:    
         print('math error')
+        
 if __name__ == '__main__':
-    find_type(7446.78) 
+    find_type('안녕') 
 ```
 -----------------------------------
 * [247번](https://codingdojang.com/scode/686?answer=26296#answer_26296)
