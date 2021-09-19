@@ -578,8 +578,9 @@ def number_distinguish(a):
         print(i+'rd')    
     else:
         print(i+'th')
-
-number_distinguish(37)
+        
+if __name__ == '__main__':
+    number_distinguish(37)
  
 ```
 -----------------------------------
