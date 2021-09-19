@@ -584,9 +584,51 @@ if __name__ == '__main__':
  
 ```
 -----------------------------------
-* 256번
+* [256번](https://codingdojang.com/scode/700?answer=26342#answer_26342)
+   * 게임규칙         
+
+게임의 참여자들은 차례를 정해 1부터 31까지의 수를 순차적으로 부른다. 한번에 1~3개까지 수를 연달아 부를 수 있으며, 마지막 31을 부른 사람이 진다.       
+
+컴퓨터가 무조건 먼저 시작하고,1P는 무조건 2번째로 말한다.컴퓨터가 무조건 이기게 만들어라.       
+LEVEL1 예상        
+힌트1:4n-2라는 공식을 사용하면 됩니다.         
+힌트2:이 게임은 31을 부르면 지는 게임이니 30을 부르면 이깁니다.         
 ```python
- 
+def start_game():
+    n = 2
+    print("컴퓨터: {0}".format(n))
+
+    while(1):
+        h = int(input("사람: "))
+
+        if ((h-n)>3 or h<n):
+            print("1~3 큰 수를 다시 얘기하세요")
+            continue
+
+        a = (h-2)%4
+
+        if(a==1):
+            n = h+3
+        elif(a==2):
+            n = h+2
+        elif(a==3):
+            n = h+1
+        elif(a==0 or a>=4):
+            print("1~3 큰 수를 다시 얘기하세요")
+            continue
+
+        print("컴퓨터: {0}".format(n))
+
+        if (n==30):
+            break
+
+    print("컴퓨터가 이겼습니다.")
+
+if __name__ == '__main__': 
+    print("="*20)
+    print("베스킨라빈스 게임")
+    print("="*20)
+    start_game() 
 ```
 -----------------------------------
 * [258번](https://codingdojang.com/scode/702?answer=26302#answer_26302)
