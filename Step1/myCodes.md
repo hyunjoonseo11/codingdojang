@@ -527,10 +527,13 @@ n의 종류는 2,3,5,7,11,13이다.
 def multiple(i,s):
     while i >= s:
         i=i-s
-    return i
+    if i == 0:
+        return '1'
+    else:
+        return '0'
 
 if __name__ == '__main__':
-    print(multiple(122,11)) 
+    print(multiple(121,11)) 
 ```
 -----------------------------------
 * 238번
