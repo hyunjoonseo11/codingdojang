@@ -548,7 +548,7 @@ if __name__ == '__main__':
 만약 문자를 입력하였으면 숫자가 아니므로 math error를 표시하게 하라.
 ```python
 def find_type(a):
-    try:
+    try: 
         if a - int(a) == 0:
             print('정수')
         else:
