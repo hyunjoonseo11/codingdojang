@@ -37,17 +37,18 @@ No carry operation.
 ```python
 def help_children():
     cnt = 0
-    a = input()
-    b = input()
-    for i in range(len(a)):
-        if a.count('0') == len(a):
-            return ' '
-        if b.count('0') == len(b):
-            return ' '   
-        if int(a[-i]) + int(b[-i]) >= 10:
+    a = int(input())
+    b = int(input())
+    carry = 0
+    for i in range(len(str(max(a,b)))):
+        if a%10 + b%10 + carry >= 10:
             cnt += 1
+            carry = 1
         else:
-            cnt == 0
+            carry = 0
+        a = a//10
+        b = b//10
+
     if cnt == 0:
         return 'No carry operation.'
     elif cnt == 1:
@@ -55,7 +56,7 @@ def help_children():
     else:
         return '{0} carry operations.'.format(cnt) 
 if __name__ == '__main__':
-    print(help_children())     
+    print(help_children())       
 ```
 -----------------------------------
 * 14번
