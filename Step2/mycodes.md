@@ -1,6 +1,56 @@
-* 1번
+* [1번](https://codingdojang.com/scode/365?answer=26393#answer_26393)
+  * 어떤 자연수 n이 있을 때, d(n)을 n의 각 자릿수 숫자들과 n 자신을 더한 숫자라고 정의하자.           
+예를 들어       
+d(91) = 9 + 1 + 91 = 101       
+이 때, n을 d(n)의 제네레이터(generator)라고 한다. 위의 예에서 91은 101의 제네레이터이다.              
+어떤 숫자들은 하나 이상의 제네레이터를 가지고 있는데, 101의 제네레이터는 91 뿐 아니라 100도 있다.  
+그런데 반대로, 제네레이터가 없는 숫자들도 있으며, 이런 숫자를 인도의 수학자 Kaprekar가 셀프 넘버(self-number)라 이름 붙였다.  
+예를 들어 1,3,5,7,9,20,31 은 셀프 넘버 들이다.           
+1 이상이고 5000 보다 작은 모든 셀프 넘버들의 합을 구하라.
 ```python
- 
+def find_generated_numbers(a):
+    g = []
+    for n in range(a):
+        y = n
+        while n > 0:
+            y += n % 10
+            n = n//10
+        g.append(y)
+    return g       
+
+if __name__ == '__main__':
+    a = int(input())
+    G = find_generated_numbers(a)
+    S = []
+    for i in range(a):
+        if i not in G:
+            S.append(i)
+    print(sum(S))        
+```
+```python
+def d_fn(n):
+    y = n
+    while n > 0:
+        y += n % 10
+        n //= 10
+    return y
+
+Z = [d_fn(n) for n in range(5000)]
+A = [n for n in range(5000) if n not in Z]
+print (sum(A)) 
+```
+> 모든 자리수를 더하는 코드
+```python
+def add_each_number(n):
+    y = 0
+    while n > 0:
+        y += n % 10
+        n //= 10
+    return y
+```
+> 어떤 결과를 빈 배열에 계속 추가하는 코드 (예)
+```python
+Z = [함수(n) for n in range(5000)]
 ```
 -----------------------------------
 * [7번](https://codingdojang.com/scode/393?answer=26361#answer_26361)
@@ -57,6 +107,10 @@ def help_children():
         return '{0} carry operations.'.format(cnt) 
 if __name__ == '__main__':
     print(help_children())       
+```
+> [map](https://wikidocs.net/32#map) 함수를 이용하여 여러 숫자를 한 번에 입력받는 코드 (예: 숫자 두 개를 입력 받을 때)
+```python
+x, y = map(int, input().split())
 ```
 -----------------------------------
 * 14번
