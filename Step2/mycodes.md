@@ -229,4 +229,9 @@ def lamp(n):
 if __name__ == '__main__':
     print(lamp(0))     
 ```
+> False를 True로 바꾸고 싶을 때 
+```python
+s = False
+s = not s
+```
 -----------------------------------
