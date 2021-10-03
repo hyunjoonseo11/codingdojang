@@ -265,18 +265,23 @@ s = not s
 6               
 12                
 ```python
-a = int(input('0보다 크고 10000보다 작은 수를 입력:'))
-b = 1 
-cnt = 1
-while True:
-    if a%2 == 0 or a%5 == 0:
-        print('너는 2나 5로 나눌수 없는 숫자를 너어야 해. 다시 해 봐!!!')
-        break
-    elif b%a == 0:
-        print(cnt)
-        break
-    else:
-        b = b*10 + 1# b의 자리수를 계속해서 증가시킨다.
-        cnt += 1 
+def count_ones(arr):
+    for i in range(len(arr)):
+        c = int(arr[i])
+        b = 1 
+        cnt = 1
+        while True:
+            
+            if b%c == 0:
+                print(cnt)
+                break
+            else:
+                b = b*10 + 1# c의 자리수를 계속해서 증가시킨다.
+                cnt += 1 
+
+
+if __name__ == '__main__':
+    arr = input().split()
+    count_ones(arr)
 ```
 -----------------------------------
