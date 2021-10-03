@@ -146,31 +146,34 @@ x, y = map(int, input().split())
 900  1000  174              
 
 ```python
-def cycle_length_first(u):
+def check_odd_even(u):
     if u % 2 == 0: # 짝수라면
         return u/2
     else: # 홀수라면
         return u*3+1
 
-def cycle_length_middle(u):
+def compute_cycle_length(u):
     a = 1
     while 1:
         if u == 1:
             break
-        u = cycle_length_first(u)    
+        u = check_odd_even(u)    
         a += 1
     return a    
 
-def cycle_length_last(h,l):
-    c = cycle_length_middle(h)
+def compute_cycle_length_two(h,l):
+    c = compute_cycle_length(h)
     for s in range(h,l+1):
-        if c < cycle_length_middle(s):
-            c = cycle_length_middle(s)
+        if c < compute_cycle_length(s):
+            c = compute_cycle_length(s)
     return c
 
 
 if __name__ == '__main__':
-    print(cycle_length_last(22,89))
+    x,y = map(int, input().split())
+    z = compute_cycle_length_two(x,y)
+    
+    print("{0}\t{1}\t{2}".format(x,y,z))
  
 ```
 -----------------------------------
@@ -188,12 +191,17 @@ if __name__ == '__main__':
   * 모든 짝수번째 숫자를 * 로 치환하시오.(홀수번째 숫자,또는 짝수번째 문자를 치환하면 안됩니다.) 로직을 이용하면 쉬운데 정규식으로는 어려울거 같아요.                        
     * Example: a 1 b 2 c d e 3 ~ g 4 5 h i 6 → a * b * c d e * ~ g 4 * h i 6                     
 ```python
-s = 'a1b2cde3~g45hi6'
-for i in range(len(s)):
-    if i%2 == 1 and s[i].isdigit():
-        print('*',end='')
-    else:
-        print(s[i],end='')
+def change_even_digit(s): 
+    for i in range(len(s)):
+        if i%2 == 1 and s[i].isdigit():
+            print('*',end='')
+        else:
+            print(s[i],end='')
+    print("")
+
+if __name__ == '__main__':
+    s = 'a1b2cde3~g45hi6'       
+    change_even_digit(s) 
  
 ```
 -----------------------------------
@@ -223,11 +231,22 @@ def lamp(n):
             s = False
         elif n%i == 0:
             s = not s
-    return s
+
+    if s == True:
+        print("yes")
+    else:
+        print("no")
+
+def check_lamps(inArray):
+    for i in range(len(inArray)):
+        if inArray[i] != '0':
+            number = int(inArray[i])
+            lamp(number)
 
 
 if __name__ == '__main__':
-    print(lamp(0))     
+    inArray = input().split()
+    check_lamps(inArray)     
 ```
 > False를 True로 바꾸고 싶을 때 사용할 수 있는 코드
 ```python
