@@ -387,3 +387,22 @@ if __name__ == '__main__':
     print(Josephus_Problem(N,K)) 
 ```
 -----------------------------------
+* [63번](https://codingdojang.com/scode/450?answer=26444#answer_26444)
+  * 어떤 수를 소수의 곱으로만 나타내는 것을 소인수분해라 하고, 이 소수들을 그 수의 소인수라고 한다.                            
+예를 들면 13195의 소인수는 5, 7, 13, 29 이다.                       
+600851475143의 소인수 중에서 가장 큰 수를 구하시오.                     
+```python
+def Largest_prime_factor(s):
+    a = 2
+    while a < s:
+        if s%a == 0:
+            s = s//a
+        a += 1
+    return s
+
+
+if __name__ == '__main__':
+    s = int(input())
+    print(Largest_prime_factor(s)) 
+```
+-----------------------------------
