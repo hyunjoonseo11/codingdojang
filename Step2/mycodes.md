@@ -451,3 +451,34 @@ if __name__ == '__main__':
     print(SimpleBalancedParentheses(a)) 
 ```
 -----------------------------------
+* 68번
+```python
+ 
+```
+-----------------------------------
+* [73번](https://codingdojang.com/scode/465?answer=26480#answer_26480)
+  * 문자열을 입력받아서, 같은 문자가 연속적으로 반복되는 경우에 그 반복 횟수를 표시하여 문자열을 압축하기.                 
+입력 예시: aaabbcccccca                 
+출력 예시: a3b2c6a1                    
+```python
+def string_short(a):
+    c = []
+    cnt = 0
+    for i in a:
+        if cnt == 0:
+            c.append(i)
+            cnt += 1
+        elif i == c[-1]:
+            cnt += 1
+        elif i != c[-1]:
+            c.append(str(cnt))
+            c.append(i)
+            cnt = 1
+    c.append(str(cnt))
+    return "".join(c)
+
+if __name__ == '__main__':
+    a = input()
+    print(string_short(a)) 
+```
+-----------------------------------
