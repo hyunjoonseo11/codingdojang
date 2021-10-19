@@ -580,3 +580,40 @@ if __name__ == '__main__':
     print(stock_investment(a,f,c)) 
 ```
 -----------------------------------
+* [86번](https://codingdojang.com/scode/480?answer=26509#answer_26509)
+  * Write a program that lets the user enter in an odd positive integer (you may assume the input is always valid), and prints out an ASCII art letter N made using the character N.                       
+  * If the input is 1, the output is:                
+N                    
+  * If the input is 3, the output is:                        
+N N                   
+NNN                 
+N N                   
+  * If the input is 5, the output is:                                       
+N   N                           
+NN  N                                                                 
+N N N                  
+N  NN                  
+N   N                   
+  * If the input is 7, the output is:                    
+N     N                                         
+NN    N                
+N N   N                 
+N  N  N                                                                                 
+N   N N                       
+N    NN                  
+N     N                   
+  * The pattern continues on like this. The output may contain trailing spaces.                
+```python
+def ASCLL_Art_N(a):
+    for i in range(a):
+        for c in range(a):
+            if c == 0 or c == i or c == a-1:
+                print('N',end = '')
+            else:
+                print(' ', end = ' ')
+        print()
+if __name__ == '__main__':
+    a = int(input())
+    ASCLL_Art_N(a) 
+```
+-----------------------------------
