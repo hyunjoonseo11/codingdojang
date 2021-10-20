@@ -617,3 +617,29 @@ if __name__ == '__main__':
     ASCLL_Art_N(a) 
 ```
 -----------------------------------
+* [90번](https://codingdojang.com/scode/484?answer=26517#answer_26517)
+  * 파이썬과 같은 몇몇 프로그래밍 언어는 Pothole_case 를 더 선호하는 언어라고 합니다.                     
+  * Example:                
+codingDojang --> coding_dojang                
+numGoat30 --> num_goat_3_0                      
+  * 위 보기와 같이 CameleCase를 Pothole_case 로 바꾸는 함수를 만들어요!      
+```python
+def change(a):
+    b = '0123456789'
+    n = a[0]     
+    for i in a[1:]:
+        if i.isupper():
+            i = '_'+i.lower()
+        elif i in b:
+            i = '_'+i
+        n += i
+    return n
+
+if __name__ == '__main__':
+    a = input()
+    print(change(a))
+
+
+첫 번째 대문자는 패스했습니다. 
+```
+-----------------------------------
