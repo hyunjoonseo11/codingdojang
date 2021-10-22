@@ -672,3 +672,39 @@ for i in addition_performece:
 print('성능이 %s인 부품을 장착할때 가성비:%d' % (a,performence/price)) 
 ```
 -----------------------------------
+* 95번
+```python
+ 
+```
+-----------------------------------
+* 98번
+```python
+ 
+```
+-----------------------------------
+* 100번
+```python
+ 
+```
+-----------------------------------
+* [104번](https://codingdojang.com/scode/503?answer=26525#answer_26525)
+  * 2이상 1000이하 자연수의 집합에서 소수의 개수를 구하는 알고리즘을 작성하시오.                           
+```python
+def decimal(a):
+    count = 0
+    for i in range(2,a+1):
+        cnt = 0
+        for  c in range(1,i+1):
+            if i%c == 0:
+                cnt += 1
+        if cnt == 2:
+            count += 1
+
+    return count       
+
+if __name__ == '__main__':
+    a = int(input())
+    print(decimal(a))
+ 
+```
+-----------------------------------
