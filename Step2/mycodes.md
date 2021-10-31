@@ -659,17 +659,21 @@ e.g.)
 추가 부품을 장착하여 얻을 수 있는 최대 가성비 : 17.81... → 17                
 (성능이 70과 65인 부품을 장착하면 됨)                    
 ```python
-price = 10
-performence = 150
-addition_price = 3
-addition_performece =[30,70,15,40,65]
-a = []
-for i in addition_performece:
-    if performence / price < (performence + i) / (price + addition_price):
-        performence += i
-        price += addition_price
-        a.append(i)
-print('성능이 %s인 부품을 장착할때 가성비:%d' % (a,performence/price)) 
+def cost_performance(price, performance, add_price, add_performance):
+    a = []
+    for i in add_performance:
+        if ((performance / price) < ((performance+i) / (price+add_price))): # 부품을 추가했을 때 성능이 더 좋아졌다면
+            performance += i
+            price += add_price
+            a.append(i)
+    print(a)
+    return int(performance / price) 
+if __name__ ==  '__main__':
+    price = 10
+    performance = 150
+    add_price = 3
+    add_performance = [30,70,15,40,65]
+    print(cost_performance(price, performance, add_price, add_performance))
 ```
 -----------------------------------
 * 95번
@@ -745,18 +749,17 @@ N번째 지나갈 때에는 N의 배수인 문들이 열려 있으면 닫고, �
 마지막에 문이 열려 있으면 그 방의 죄수는 석방이다.                             
 과연 몇 명의 죄수가 석방될까?             
 ```python
-a = [1 for i in range(120)]
 def prisoner(a):
-    for i in range(1,len(a)+1):
-        for n in range(1,len(a)+1):
-            if n%i == 0:
-                a[n-1] = a[n-1]*(-1)
+    for i in range(1,len(a)): # 지나가는 횟수
+        for n in range(1,len(a)): # 방 번호
+            if n%i == 0: # 방번호가 지나가는 횟수의 배수라면 
+                a[n] = a[n]*(-1) 
             else:
                 continue
     return a.count(-1)
 
 if __name__ == '__main__':
-    a = [1 for i in range(120)]
+    a = [1]*121
     print(prisoner(a)) 
 ```
 -----------------------------------
