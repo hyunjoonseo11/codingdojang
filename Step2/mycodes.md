@@ -779,20 +779,22 @@ if __name__ == '__main__':
   * 1 ~ 10 사이의 어떤 수로도 나누어 떨어지는 가장 작은 수는 2520입니다.                     
 그러면 1 ~ 20 사이의 어떤 수로도 나누어 떨어지는 가장 작은 수는 얼마입니까?                         
 ```python
-lastNumber = 20
-i = lastNumber
-while True:
-    t = 0
-    i += 1
-    for n in range(1, lastNumber+1):
-        if i%n == 0:
-            t += 1
-        else:
-            break    
-    if t == lastNumber:
-        break
-        
-print(i)    
+def smallest_multiple(a):
+    i = a
+    while True:
+        x = 0
+        i += 2
+        for y in range(1,a+1):
+            if i%y == 0:
+                x += 1
+            else:
+                break
+    if x == a:
+        return i
+
+if __name__ == '__main__':
+    a = 20
+    print(smallest_multiple(a))   
 ```
 -----------------------------------
 * 133번
