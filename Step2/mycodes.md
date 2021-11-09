@@ -997,3 +997,45 @@ for i in c:
     print(print_mode(i)) 
 ```
 -----------------------------------
+* 192번
+```python
+ 
+```
+-----------------------------------
+* [193번](https://codingdojang.com/scode/623?answer=26624#answer_26624)
+  * 당신은 A 인터넷 카페 운영자이다.          
+당신의 인터넷 카페에는 휴대폰 번호 시가 금지되어 있다.                                          
+하지만 일부 회원들이 편법을 동원하여 휴대폰 번호를 게시 후 불법 거래를 시도한다.                
+이를 체크하여 자동 삭제를 할 수 있도록 휴대폰 번호 검사 알고리즘을 작성하시오.             
+(011~019 는 10자리여도 휴대폰 번호이다. 010은 11자리여야만 한다.)                   
+    * Input                              
+영일영-구구칠8-일구팔사                      
+0일영.칠칠칠팔.이삼사                   
+영 일 칠 삼 칠 오 팔 이 팔 이                              
+영일일 34구구 4 오 9 이                      
+    * Output                                       
+01099781984 true                     
+0107778234 false                   
+0173758282 true                   
+01134994592 true                      
+```python
+def check_phone_number(a):
+    e = {'영':'0', '일':'1', '이':'2', '삼':'3', '사':'4', '오':'5', '육':'6', '칠':'7', '팔':'8', '구':'9'}
+    c = []
+    for i in a:
+        if i in e.keys():
+            c.append(e[i])
+        elif i in e.values():
+            c.append(i)
+    print(" ".join(c),end=' ')
+    if len(c) == 11 and c[0]+c[1] == '01' and c[2] in e.values():
+        return True
+    elif len(c) == 10 and c[0]+c[1] == '01' and c[2] in e.values():
+        return True
+    return False
+        
+a = "영일일 34구구 4 오 9 이"
+print(check_phone_number(list(a)))
+ 
+```
+-----------------------------------
