@@ -1094,3 +1094,27 @@ print(divisor)
 print("약수의 개수는 %d개 입니다." % len(divisor))
 ```
 -----------------------------------
+* 210번
+```python
+ 
+```
+-----------------------------------
+* [211번](https://codingdojang.com/scode/643?answer=26635#answer_26635)
+  * 사용자 입력과 random함수를 사용하여, 사용자(User)와 컴퓨터가 대결하는 가위 바위 보 게임을 만들어보자.                                  
+입력: [문자열] "가위", "바위" 혹은 "보" 출력: [문자열] 결과 반환                         
+```python
+import random
+def Rock_Paper_Scissors(c,u):
+    if c == u:
+        print("비겼어")
+    elif c != u:
+        if (c == "가위" and u == "바위") or (c == "바위" and u == "보") or (c == "보" and u == "가위"):
+            print("니가 이겼어!!!!!")
+        else:
+            print("니가 졌어....")
+if __name__ == '__main__':
+    c = random.choice(["가위","바위","보"])
+    u = input("가위,바위,보 중에서 하나를 골라!: ")
+    Rock_Paper_Scissors(c,u) 
+```
+-----------------------------------
