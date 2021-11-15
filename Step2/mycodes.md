@@ -1025,6 +1025,7 @@ else if (me=="가위" && you=="주먹"){
 ```python
 import random
 def Rock_Paper_Scissors(c,u):
+    print('컴퓨터는'+ c +'를 냈다')
     if c == u:
         print("비기셨습니다")
     elif c != u:
@@ -1035,7 +1036,7 @@ def Rock_Paper_Scissors(c,u):
 if __name__ == '__main__':
     c = random.choice(["가위","바위","보"])
     u = input("가위,바위,보 중에서 하나를 골라!: ")
-    Rock_Paper_Scissors(c,u) 
+    Rock_Paper_Scissors(c,u)
 ```
 -----------------------------------
 * [193번](https://codingdojang.com/scode/623?answer=26624#answer_26624)
